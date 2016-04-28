@@ -39,7 +39,7 @@
  * Displayed in the LCD "Ready" message.                                                 *
  *                                                                                       *
  *****************************************************************************************/
-#define CUSTOM_MACHINE_NAME "Prusa I3"
+#define CUSTOM_MACHINE_NAME "Discovery 200"
 /*****************************************************************************************/
 
 
@@ -78,12 +78,12 @@
  *                                                                                       *
  *****************************************************************************************/
 #define X_MIN_ENDSTOP_LOGIC   false   // set to true to invert the logic of the endstop.
-#define Y_MIN_ENDSTOP_LOGIC   false   // set to true to invert the logic of the endstop.
+#define Y_MIN_ENDSTOP_LOGIC   true   // set to true to invert the logic of the endstop.
 #define Z_MIN_ENDSTOP_LOGIC   false   // set to true to invert the logic of the endstop.
 #define Z2_MIN_ENDSTOP_LOGIC  false   // set to true to invert the logic of the endstop.
-#define X_MAX_ENDSTOP_LOGIC   false   // set to true to invert the logic of the endstop.
+#define X_MAX_ENDSTOP_LOGIC   true   // set to true to invert the logic of the endstop.
 #define Y_MAX_ENDSTOP_LOGIC   false   // set to true to invert the logic of the endstop.
-#define Z_MAX_ENDSTOP_LOGIC   false   // set to true to invert the logic of the endstop.
+#define Z_MAX_ENDSTOP_LOGIC   true   // set to true to invert the logic of the endstop.
 #define Z2_MAX_ENDSTOP_LOGIC  false   // set to true to invert the logic of the endstop.
 #define Z_PROBE_ENDSTOP_LOGIC false   // set to true to invert the logic of the endstop.
 #define E_MIN_ENDSTOP_LOGIC   false   // set to true to invert the logic of the endstop.
@@ -98,7 +98,7 @@
  *                                                                                       *
  *****************************************************************************************/
 #define X_HOME_DIR -1
-#define Y_HOME_DIR -1
+#define Y_HOME_DIR 1
 #define Z_HOME_DIR -1
 #define E_HOME_DIR -1
 /*****************************************************************************************/
@@ -145,8 +145,8 @@
  *****************************************************************************************/
 #define INVERT_X_DIR false
 #define INVERT_Y_DIR false
-#define INVERT_Z_DIR false
-#define INVERT_E0_DIR false
+#define INVERT_Z_DIR true
+#define INVERT_E0_DIR true
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -164,10 +164,10 @@
  *****************************************************************************************/
 #define DISABLE_X false
 #define DISABLE_Y false
-#define DISABLE_Z false
+#define DISABLE_Z true
 #define DISABLE_E false      // For all extruder
 // Disable only inactive extruder and keep active extruder enabled
-#define DISABLE_INACTIVE_EXTRUDER false
+#define DISABLE_INACTIVE_EXTRUDER true
 /*****************************************************************************************/
 
 
@@ -178,11 +178,11 @@
  * Travel limits after homing (units are in mm)                                          *
  *                                                                                       *
  *****************************************************************************************/
-#define X_MAX_POS 200
+#define X_MAX_POS 205
 #define X_MIN_POS 0
-#define Y_MAX_POS 200
+#define Y_MAX_POS 205
 #define Y_MIN_POS 0
-#define Z_MAX_POS 200
+#define Z_MAX_POS 205
 #define Z_MIN_POS 0
 #define E_MIN_POS 0
 /*****************************************************************************************/
@@ -209,9 +209,9 @@
  * Uncomment Z_SAFE_HOMING to enable                                                     *
  *                                                                                       *
  *****************************************************************************************/
-//#define Z_SAFE_HOMING
-#define Z_SAFE_HOMING_X_POINT ((X_MIN_POS + X_MAX_POS) / 2)
-#define Z_SAFE_HOMING_Y_POINT ((Y_MIN_POS + Y_MAX_POS) / 2)
+#define Z_SAFE_HOMING
+#define Z_SAFE_HOMING_X_POINT ((X_MAX_POS - X_MIN_POS) / 2)
+#define Z_SAFE_HOMING_Y_POINT ((Y_MAX_POS - Y_MIN_POS) / 2)
 /*****************************************************************************************/
 
 
@@ -223,12 +223,12 @@
  * Set the rectangle in which to probe in MBL or ABL.                                    *
  *                                                                                       *
  *****************************************************************************************/
-#define LEFT_PROBE_BED_POSITION 20
-#define RIGHT_PROBE_BED_POSITION 180
-#define FRONT_PROBE_BED_POSITION 20
-#define BACK_PROBE_BED_POSITION 180
+#define LEFT_PROBE_BED_POSITION 22
+#define RIGHT_PROBE_BED_POSITION 184
+#define FRONT_PROBE_BED_POSITION 50
+#define BACK_PROBE_BED_POSITION 145
 
-#define XY_TRAVEL_SPEED 10000     // X and Y axis travel speed between probes, in mm/min
+#define XY_TRAVEL_SPEED 3000     // X and Y axis travel speed between probes, in mm/min
 /*****************************************************************************************/
 
 
@@ -251,8 +251,8 @@
  * Uncomment AUTO_BED_LEVELING_FEATURE to enable                                         *
  *                                                                                       *
  *****************************************************************************************/
-//#define AUTO_BED_LEVELING_FEATURE
-//#define Z_PROBE_REPEATABILITY_TEST  // If not commented out, Z-Probe Repeatability test will be included if Auto Bed Leveling is Enabled.
+#define AUTO_BED_LEVELING_FEATURE
+#define Z_PROBE_REPEATABILITY_TEST  // If not commented out, Z-Probe Repeatability test will be included if Auto Bed Leveling is Enabled.
 
 // Enable this to sample the bed in a grid (least squares solution)
 // Note: this feature generates 10KB extra code size
@@ -262,18 +262,18 @@
 #define MIN_PROBE_EDGE 10 // The probe square sides can be no smaller than this
 // Set the number of grid points per dimension
 // You probably don't need more than 3 (squared=9)
-#define AUTO_BED_LEVELING_GRID_POINTS 2
+#define AUTO_BED_LEVELING_GRID_POINTS 3
 // yes AUTO_BED_LEVELING_GRID
 
 // no AUTO_BED_LEVELING_GRID
 // Arbitrary points to probe. A simple cross-product
 // is used to estimate the plane of the bed.
 #define ABL_PROBE_PT_1_X 15
-#define ABL_PROBE_PT_1_Y 180
+#define ABL_PROBE_PT_1_Y 50
 #define ABL_PROBE_PT_2_X 15
-#define ABL_PROBE_PT_2_Y 15
+#define ABL_PROBE_PT_2_Y 155
 #define ABL_PROBE_PT_3_X 180
-#define ABL_PROBE_PT_3_Y 15
+#define ABL_PROBE_PT_3_Y 50
 // no AUTO_BED_LEVELING_GRID
 
 // Offsets to the probe relative to the extruder tip (Hotend - Probe)
@@ -289,10 +289,10 @@
 //    |           |
 //    O-- FRONT --+
 #define X_PROBE_OFFSET_FROM_EXTRUDER  0     // X offset: -left  [of the nozzle] +right
-#define Y_PROBE_OFFSET_FROM_EXTRUDER  0     // Y offset: -front [of the nozzle] +behind
-#define Z_PROBE_OFFSET_FROM_EXTRUDER -1     // Z offset: -below [of the nozzle] (always negative!)
+#define Y_PROBE_OFFSET_FROM_EXTRUDER  -22     // Y offset: -front [of the nozzle] +behind
+#define Z_PROBE_OFFSET_FROM_EXTRUDER -0.1     // Z offset: -below [of the nozzle] (always negative!)
 
-#define Z_RAISE_BEFORE_HOMING        10     // (in mm) Raise Z before homing (G28) for Probe Clearance.
+#define Z_RAISE_BEFORE_HOMING        5     // (in mm) Raise Z before homing (G28) for Probe Clearance.
                                             // Be sure you have this distance over your Z_MAX_POS in case
 
 #define Z_RAISE_BEFORE_PROBING       10     //How much the extruder will be raised before travelling to the first probing point.
@@ -358,7 +358,7 @@
  ******************************* Axis steps per unit *************************************
  *****************************************************************************************/
 // Default steps per unit               X,  Y,    Z,  E0...(per extruder)
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {80, 80, 3200, 625, 625, 625, 625}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {80, 80, 2560, 98, 98, 98, 98}
 /*****************************************************************************************/
 
 
@@ -366,7 +366,7 @@
  ********************************** Axis feedrate ****************************************
  *****************************************************************************************/
 //                                       X,   Y, Z,  E0...(per extruder). (mm/sec)
-#define DEFAULT_MAX_FEEDRATE          {300, 300, 2, 100, 100, 100, 100}
+#define DEFAULT_MAX_FEEDRATE          {500, 500, 4, 25, 25, 25, 25}
 #define MANUAL_FEEDRATE               {50*60, 50*60, 4*60, 60}  // Feedrates for manual moves along X, Y, Z, E from panel
 #define DEFAULT_MINIMUMFEEDRATE       0.0                       // minimum feedrate
 #define DEFAULT_MINTRAVELFEEDRATE     0.0
@@ -381,9 +381,9 @@
  ******************************** Axis accelleration *************************************
  *****************************************************************************************/
 //  Maximum start speed for accelerated moves.    X,    Y,  Z,   E0...(per extruder)
-#define DEFAULT_MAX_ACCELERATION              {3000, 3000, 50, 1000, 1000, 1000, 1000}
+#define DEFAULT_MAX_ACCELERATION              {9000, 3000, 100, 10000, 10000, 10000, 10000}
 //  Maximum acceleration in mm/s^2 for retracts   E0... (per extruder)
-#define DEFAULT_RETRACT_ACCELERATION          {10000, 10000, 10000, 10000}
+#define DEFAULT_RETRACT_ACCELERATION          {3000, 3000, 3000, 3000}
 //  X, Y, Z and E* maximum acceleration in mm/s^2 for printing moves
 #define DEFAULT_ACCELERATION          3000
 //  X, Y, Z acceleration in mm/s^2 for travel (non printing) moves
@@ -399,7 +399,7 @@
  * (i.e. the software might assume it can be done instantaneously)                       *
  *                                                                                       *
  *****************************************************************************************/
-#define DEFAULT_XYJERK 10.0                 // (mm/sec)
+#define DEFAULT_XYJERK 20.0                 // (mm/sec)
 #define DEFAULT_ZJERK   0.4                 // (mm/sec)
 //  max initial speed for retract moves   E0... (mm/sec) per extruder
 #define DEFAULT_EJERK                   {5.0, 5.0, 5.0, 5.0}
@@ -409,7 +409,7 @@
 /*****************************************************************************************
  ************************************ Homing feedrate ************************************
  *****************************************************************************************/
-#define HOMING_FEEDRATE {100*60, 100*60, 2*60, 0} // set the homing speeds (mm/min)
+#define HOMING_FEEDRATE {50*60, 50*60, 4*60, 0} // set the homing speeds (mm/min)
 
 // homing hits the endstop, then retracts by this distance, before it tries to slowly bump again:
 #define X_HOME_BUMP_MM 5
@@ -429,9 +429,9 @@
  * For the other hotends it is their distance from the hotend 0.                         *
  *                                                                                       *
  *****************************************************************************************/
-#define HOTEND_OFFSET_X {0.0, 0.0, 0.0, 0.0} // (in mm) for each hotend, offset of the hotend on the X axis
-#define HOTEND_OFFSET_Y {0.0, 0.0, 0.0, 0.0} // (in mm) for each hotend, offset of the hotend on the Y axis
-#define HOTEND_OFFSET_Z {0.0, 0.0, 0.0, 0.0} // (in mm) for each hotend, offset of the hotend on the Z axis
+//#define HOTEND_OFFSET_X {0.0, 0.0, 0.0, 0.0} // (in mm) for each hotend, offset of the hotend on the X axis
+//#define HOTEND_OFFSET_Y {0.0, 0.0, 0.0, 0.0} // (in mm) for each hotend, offset of the hotend on the Y axis
+//#define HOTEND_OFFSET_Z {0.0, 0.0, 0.0, 0.0} // (in mm) for each hotend, offset of the hotend on the Z axis
 /*****************************************************************************************/
 
 

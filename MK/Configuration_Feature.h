@@ -182,9 +182,9 @@
 #define LPQ_MAX_LEN 50
 
 //           HotEnd{HE0,HE1,HE2,HE3}
-#define DEFAULT_Kp {40, 40, 40, 40}     // Kp for H0, H1, H2, H3
-#define DEFAULT_Ki {07, 07, 07, 07}     // Ki for H0, H1, H2, H3
-#define DEFAULT_Kd {60, 60, 60, 60}     // Kd for H0, H1, H2, H3
+#define DEFAULT_Kp {88.12, 40, 40, 40}     // Kp for H0, H1, H2, H3
+#define DEFAULT_Ki {17.46, 07, 07, 07}     // Ki for H0, H1, H2, H3
+#define DEFAULT_Kd {111.16, 60, 60, 60}     // Kd for H0, H1, H2, H3
 #define DEFAULT_Kc {100, 100, 100, 100} // heating power = Kc * (e_speed)
 /***********************************************************************/
 
@@ -307,7 +307,7 @@
 // This defines the minimal speed for the main fan, run in PWM mode
 // to enable uncomment and set minimal PWM speed for reliable running (1-255)
 // if fan speed is [1 - (FAN_MIN_PWM-1)] it is set to FAN_MIN_PWM
-//#define FAN_MIN_PWM 50
+#define FAN_MIN_PWM 130
 
 // This is for controlling a fan to cool down the stepper drivers
 // it will turn on when any driver is enabled
@@ -338,7 +338,7 @@
  * For Smoother temperature                                               *
  * ONLY FOR DUE                                                           *
  **************************************************************************/
-#define MEDIAN_COUNT 10
+//#define MEDIAN_COUNT 10
 /**************************************************************************/
 
 
@@ -373,7 +373,7 @@
 #define EXTRUDE_MINTEMP 170 // degC
 
 // if PREVENT DANGEROUS EXTRUDE is on, you can still disable (uncomment) very long bits of extrusion separately.
-//#define PREVENT_LENGTHY_EXTRUDE
+#define PREVENT_LENGTHY_EXTRUDE
 #define EXTRUDE_MAXLENGTH (X_MAX_LENGTH + Y_MAX_LENGTH) // prevent extrusion of very large distances.
 /***********************************************************************/
 
@@ -416,7 +416,7 @@
 //#define COLOR_MIXING_EXTRUDER
 
 // Use the Virtual Tool method with M163 and M164
-#define MIXING_VIRTUAL_TOOLS 16
+//#define MIXING_VIRTUAL_TOOLS 16
 /***********************************************************************/
 
 
@@ -1038,7 +1038,7 @@
 /*****************************************************************************************
  *************************************** SDCARD *******************************************
  ****************************************************************************************/
-//#define SDSUPPORT           // Enable SD Card Support in Hardware Console
+#define SDSUPPORT           // Enable SD Card Support in Hardware Console
 //#define SDSLOW              // Use slower SD transfer mode (not normally needed - uncomment if you're getting volume init error)
 //#define SDEXTRASLOW         // Use even slower SD transfer mode (not normally needed - uncomment if you're getting volume init error)
 //#define SD_CHECK_AND_RETRY  // Use CRC checks and retries on the SD communication

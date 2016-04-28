@@ -30,8 +30,8 @@
 
 // Enable the Bluetooth serial interface
 //#define BLUETOOTH
-#define BLUETOOTH_PORT 1
-#define BLUETOOTH_BAUD 115200
+//#define BLUETOOTH_PORT 1
+//#define BLUETOOTH_BAUD 115200
 
 // User-specified version info of this build to display in [Pronterface, etc] terminal window during
 // startup. Implementation of an idea by Prof Braino to inform user that any changes made to this
@@ -71,7 +71,7 @@
  * See: https://github.com/MagoKimbra/MarlinKimbra/blob/master/Documentation/Hardware.md *
  *                                                                                       *
  *****************************************************************************************/
-#define MOTHERBOARD BOARD_RAMPS_13_HFB
+#define MOTHERBOARD BOARD_MELZI
 /*****************************************************************************************/
 
 
@@ -173,11 +173,11 @@
  *  998 and 999 are Dummy Tables. ALWAYS read 25°C or DUMMY_THERMISTOR_998_VALUE temperature        *
  *                                                                                                   *
  *****************************************************************************************************/
-#define TEMP_SENSOR_0 1
+#define TEMP_SENSOR_0 5
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
-#define TEMP_SENSOR_BED 0
+#define TEMP_SENSOR_BED 11
 
 //These 2 defines help to calibrate the AD595 sensor in case you get wrong temperature measurements.
 //The measured temperature is defined as "actualTemp = (measuredTemp * TEMP_SENSOR_AD595_GAIN) + TEMP_SENSOR_AD595_OFFSET"
@@ -210,11 +210,11 @@
 // When temperature exceeds max temp, your heater will be switched off.
 // This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
 // You should use MINTEMP for thermistor short/failure protection.
-#define HEATER_0_MAXTEMP 275 // (degC)
+#define HEATER_0_MAXTEMP 330 // (degC)
 #define HEATER_1_MAXTEMP 275 // (degC)
 #define HEATER_2_MAXTEMP 275 // (degC)
 #define HEATER_3_MAXTEMP 275 // (degC)
-#define BED_MAXTEMP      150 // (degC)
+#define BED_MAXTEMP      130 // (degC)
 
 // The minimal temperature defines the temperature below which the heater will not be enabled It is used
 // to check that the wiring to the thermistor is not broken.
@@ -230,7 +230,7 @@
 #define PLA_PREHEAT_HPB_TEMP     60
 #define PLA_PREHEAT_FAN_SPEED   255   // Insert Value between 0 and 255
 
-#define ABS_PREHEAT_HOTEND_TEMP 240
+#define ABS_PREHEAT_HOTEND_TEMP 230
 #define ABS_PREHEAT_HPB_TEMP    100
 #define ABS_PREHEAT_FAN_SPEED   255   // Insert Value between 0 and 255
 
@@ -267,6 +267,6 @@
  * 19 Chinese                                                          *
  *                                                                     *
  ***********************************************************************/
-#define LANGUAGE_CHOICE 1
+#define LANGUAGE_CHOICE 3
 /***********************************************************************/
 #endif
